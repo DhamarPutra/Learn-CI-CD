@@ -14,6 +14,15 @@ jobs:
     - name: Check PHP Version
       run: php -v
 
+    - name: Bersihin Data Deploy
+      run: |
+        cd /var/www/html/cicd/Client
+        rm -rf dist/*
+        cd /var/www/html/cicd/Server/public
+        rm -rf assets/*
+        rm -f index.html
+        rm -f vite.svg
+
     - name: Ke Directory Utama
       run: |
         cd /var/www/html/cicd
