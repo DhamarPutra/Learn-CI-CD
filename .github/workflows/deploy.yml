@@ -28,7 +28,7 @@ jobs:
     - name: Copy File Build Ke Laravel Local
       run: |
         cd /var/www/html/cicd/Client/dist
-        mv ./* ../../Server/public/
+        mv -f ./* ../../Server/public/
 
     - name: Deploy Laravel Local
       run: |
