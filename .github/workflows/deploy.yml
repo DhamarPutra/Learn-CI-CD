@@ -20,6 +20,12 @@ jobs:
     - name: Install Dependencies
       run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
+    - name: Create .env file
+      run: cp .env.example .env
+
+    - name: Generate App Key
+      run: php artisan key:generate
+
     - name: Execute Tests
       run: php artisan test
 
