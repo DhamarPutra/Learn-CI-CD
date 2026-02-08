@@ -19,7 +19,7 @@ jobs:
         cd /var/www/html/cicd/Client
         rm -rf dist/*
         cd /var/www/html/cicd/Server/public
-        rm -rf assets/*
+        rm -rf assets/
         rm -f index.html
         rm -f vite.svg
 
