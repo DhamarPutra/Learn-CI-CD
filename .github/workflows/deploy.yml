@@ -26,11 +26,28 @@ jobs:
     - name: Execute Tests
       run: php artisan test
 
-    - name: Deploy local
+# Ini Deploy Local2
+    - name: Ke Directory Utama
       run: |
         cd /var/www/html/cicd
         git pull origin main
+
+    - name: Build Vite Local
+      run: |
+        cd Client
+        npm install
+        npm run build
+
+    - name: Copy File Build Ke Laravel Local
+      run: |
+        cd dist
+        mv ./* ../../Server/public/
+
+    - name: Deploy Laravel Local
+      run: |
+        cd ../../Server
         composer install --no-dev --optimize-autoloader
         php artisan migrate --force
+        php artisan optimize:clear
         php artisan config:cache
         php artisan route:cache
