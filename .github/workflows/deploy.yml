@@ -29,16 +29,11 @@ jobs:
     - name: Execute Tests
       run: php artisan test
 
-    - name: Deploy via SSH
-      uses: appleboy/ssh-action@v1.0.0
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          cd /var/www/html/cicd
-          git pull origin main
-          composer install --no-dev --optimize-autoloader
-          php artisan migrate --force
-          php artisan config:cache
-          php artisan route:cache
+    - name: Deploy local
+      run: |
+        cd /var/www/html/cicd
+        git pull origin main
+        composer install --no-dev --optimize-autoloader
+        php artisan migrate --force
+        php artisan config:cache
+        php artisan route:cache
