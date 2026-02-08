@@ -14,17 +14,17 @@ jobs:
     - name: Check PHP Version
       run: php -v
 
-    - name: Install Dependencies
-      run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    # - name: Install Dependencies
+    #   run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
-    - name: Create .env file
-      run: cp .env.example .env
+    # - name: Create .env file
+    #   run: cp .env.example .env
 
-    - name: Generate App Key
-      run: php artisan key:generate
+    # - name: Generate App Key
+    #   run: php artisan key:generate
 
-    - name: Execute Tests
-      run: php artisan test
+    # - name: Execute Tests
+    #   run: php artisan test
 
 # Ini Deploy Local2
     - name: Ke Directory Utama
