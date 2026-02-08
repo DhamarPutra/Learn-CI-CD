@@ -21,18 +21,18 @@ jobs:
 
     - name: Build Vite Local
       run: |
-        cd Client
+        cd /var/www/html/cicd/Client
         npm install
         npm run build
 
     - name: Copy File Build Ke Laravel Local
       run: |
-        cd Client/dist
+        cd /var/www/html/cicd/Client/dist
         mv ./* ../../Server/public/
 
     - name: Deploy Laravel Local
       run: |
-        cd Server
+        cd /var/www/html/cicd/Server
         composer install --no-dev --optimize-autoloader
         php artisan migrate --force
         php artisan optimize:clear
